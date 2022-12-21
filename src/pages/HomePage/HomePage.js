@@ -27,12 +27,12 @@ const HomePage = () => {
 
   return (
     <>
-      {!error && movies.length > 0 ? (
+      {movies && (
         <>
           <h2>Trending today</h2>
           <MoviesList movies={movies} />
         </>
-      ) : null}
+      )}
       {loading && <Loader />}
       {error && <Error />}
     </>

@@ -27,23 +27,42 @@ const Reviews = () => {
 
   return (
     <>
-      {loading ? <Loader /> : null}
-      {error ? <Error /> : null}
-      {!loading && !reviews.length ? <NotReviews /> : null}
+      {loading && <Loader />}
+      {error && <Error />}
+      {!reviews.length && <NotReviews />}
       <ul>
-        {reviews.length
-          ? reviews.map(({ id, author, content }) => {
-              return (
-                <li key={id}>
-                  <b>{author}</b>
-                  <p>{content}</p>
-                </li>
-              );
-            })
-          : null}
+        {reviews &&
+          reviews.map(({ id, author, content }) => {
+            return (
+              <li key={id}>
+                <b>{author}</b>
+                <p>{content}</p>
+              </li>
+            );
+          })}
       </ul>
     </>
   );
 };
 
 export default Reviews;
+// {
+//   loading && <Loader />;
+// }
+// {
+//   error && <Error />;
+// }
+// {
+//   !reviews && <NotReviews />;
+// }
+// <ul>
+//   {reviews &&
+//     reviews.map(({ id, author, content }) => {
+//       return (
+//         <li key={id}>
+//           <b>{author}</b>
+//           <p>{content}</p>
+//         </li>
+//       );
+//     })}
+// </ul>;

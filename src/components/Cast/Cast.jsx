@@ -27,9 +27,9 @@ const Cast = () => {
 
   return (
     <>
-      {loading ? <Loader /> : null}
-      {error ? <Error /> : null}
-      {!loading && !error && actors.length ? (
+      {loading && <Loader />}
+      {error && <Error />}
+      {actors ? (
         <ActorsList actors={actors} />
       ) : (
         <p>We don't find any actors for this movie!</p>

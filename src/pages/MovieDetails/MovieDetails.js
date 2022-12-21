@@ -30,7 +30,7 @@ const MovieDetails = () => {
     <>
       {loading && <Loader />}
       {error && <Error />}
-      {movieInfo && !error ? <MovieDetail movieInfo={movieInfo} /> : null}
+      {movieInfo && <MovieDetail movieInfo={movieInfo} />}
     </>
   );
 };
