@@ -31,7 +31,7 @@ const Reviews = () => {
       {error && <Error />}
       {!reviews.length && <NotReviews />}
       <ul>
-        {reviews &&
+        {reviews.length &&
           reviews.map(({ id, author, content }) => {
             return (
               <li key={id}>

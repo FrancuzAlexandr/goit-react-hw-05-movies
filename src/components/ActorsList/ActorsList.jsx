@@ -20,7 +20,7 @@ export const ActorsList = ({ actors }) => {
 
   return (
     <ul className={css.actorsList}>
-      {actorsWithImage &&
+      {actorsWithImage.length &&
         actorsWithImage.map(({ id, name, character, profile_path }) => {
           return (
             <li key={id} className={css.actorsList__item}>
@@ -38,7 +38,9 @@ export const ActorsList = ({ actors }) => {
           );
         })}
 
-      {actorOthers && <h2 className={css.actorsList__other}>Others actors:</h2>}
+      {actorOthers.length && (
+        <h2 className={css.actorsList__other}>Others actors:</h2>
+      )}
       {actorOthers.map(({ id, name }) => {
         return (
           <li key={id}>
