@@ -69,8 +69,8 @@ const Movies = () => {
       </form>
       {loading && <Loader />}
       {error && <Error />}
-      {movies.length && <MoviesList movies={movies} />}
-      {movies.length && queryURL && !loading
+      {movies.length ? <MoviesList movies={movies} /> : null}
+      {movies.length && !queryURL && !loading
         ? 'Nothing found for your request!'
         : null}
     </>

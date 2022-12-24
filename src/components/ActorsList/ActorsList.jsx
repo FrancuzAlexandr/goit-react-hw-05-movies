@@ -20,27 +20,28 @@ export const ActorsList = ({ actors }) => {
 
   return (
     <ul className={css.actorsList}>
-      {actorsWithImage.length &&
-        actorsWithImage.map(({ id, name, character, profile_path }) => {
-          return (
-            <li key={id} className={css.actorsList__item}>
-              <img
-                className={css.actorsList__img}
-                src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                alt={name}
-                width="70"
-              />
-              <div>
-                <b>{name}</b>
-                <p>Character: {character}</p>
-              </div>
-            </li>
-          );
-        })}
+      {actorsWithImage.length
+        ? actorsWithImage.map(({ id, name, character, profile_path }) => {
+            return (
+              <li key={id} className={css.actorsList__item}>
+                <img
+                  className={css.actorsList__img}
+                  src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+                  alt={name}
+                  width="70"
+                />
+                <div>
+                  <b>{name}</b>
+                  <p>Character: {character}</p>
+                </div>
+              </li>
+            );
+          })
+        : null}
 
-      {actorOthers.length && (
+      {actorOthers.length ? (
         <h2 className={css.actorsList__other}>Others actors:</h2>
-      )}
+      ) : null}
       {actorOthers.map(({ id, name }) => {
         return (
           <li key={id}>
